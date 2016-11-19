@@ -22,16 +22,6 @@ angular.module('ui.slimscroll', []).directive('slimscroll', ['$timeout', '$windo
           });
       };
 
-      angular.element($window).bind('resize', function() {
-          if ($attr.slimscroll) {            
-              option = $scope.$eval($attr.slimscroll);              
-            } else if ($attr.slimscrollOption) {           
-             option = $scope.$eval($attr.slimscrollOption);              
-            }
-               
-           $($elem).slimScroll(option);
-       });
-
       var registerWatch = function () {
         if (angular.isDefined($attr.slimscroll) && !option.noWatch) {
           off.push($scope.$watchCollection($attr.slimscroll, refresh));
